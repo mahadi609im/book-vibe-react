@@ -25,10 +25,10 @@ const ReadBooks = ({ book }) => {
       onClick={() => navigate(`/bookDetails/${bookId}`)}
       className="w-full border border-[#13131326] p-6 shadow cursor-pointer mt-8"
     >
-      <div className="flex">
-        <div className="bg-[#F3F3F3] w-[230px] py-[30px] px-[50px] rounded-2xl">
+      <div className="flex flex-col md:flex-row">
+        <div className="bg-[#F3F3F3] w-full md:w-[230px] py-[30px] px-[50px] rounded-2xl flex justify-center items-center">
           <img
-            className="w-full max-h-[172px] h-full object-cover"
+            className="w-[230px] md:w-full md:max-h-[172px] h-full object-cover"
             src={image}
             alt="Shoes"
           />
@@ -39,7 +39,7 @@ const ReadBooks = ({ book }) => {
             <div className="badge badge-secondary">{category}</div>
           </h2>
           <p className="font-medium">by : {author}</p>
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <div>
               <b>Tag</b>{' '}
               {tags &&
@@ -57,7 +57,7 @@ const ReadBooks = ({ book }) => {
               Year of Publishing: {yearOfPublishing}
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row  gap-4">
             <div>
               {' '}
               <p className="flex gap-1 items-center">
@@ -71,7 +71,7 @@ const ReadBooks = ({ book }) => {
             </p>
           </div>
           <div className="border border-dashed w-full border-[#13131326] my-5"></div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <span className="py-[11px] px-[20px] bg-[#328eff26] text-[#328EFF] rounded-4xl ">
               Category: {category}
             </span>

@@ -34,9 +34,12 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="flex gap-6 justify-between items-center mb-20">
-      <div className="p-[74px] bg-[#F3F3F3] w-full h-full flex justify-center items-center rounded-2xl">
-        <img className="max-w-[425px] w-full h-auto" src={image} />
+    <div className="flex flex-col lg:flex-row gap-6 justify-between items-center mb-20">
+      <div className="p-[32px] md:p-[56px] lg:p-[74px] bg-[#F3F3F3] w-full h-full flex justify-center items-center rounded-2xl">
+        <img
+          className="max-w-[200px] md:max-w-[300px] lg:max-w-[425px] w-full h-auto"
+          src={image}
+        />
       </div>
       <div className="w-full h-auto">
         <h2 className="text-[40px] font-bold text-[#131313] mb-4">
