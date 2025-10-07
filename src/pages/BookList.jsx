@@ -10,12 +10,13 @@ import ReadBooks from '../components/ReadBooks';
 
 const BookList = () => {
   const readStoredData = getReadStoredData();
-  const wishlistStoredData = getWishlistStoredData();
   const { books } = useDataLoad();
 
   const storedReadBooks = books.filter(book =>
     readStoredData.includes(book.bookId)
   );
+
+  const wishlistStoredData = getWishlistStoredData();
   const storedWishlistBooks = books.filter(book =>
     wishlistStoredData.includes(book.bookId)
   );
@@ -34,20 +35,36 @@ const BookList = () => {
           </TabList>
 
           <TabPanel>
-            <div className="">
-              {storedReadBooks &&
-                storedReadBooks.map(book => (
-                  <ReadBooks key={book.bookId} book={book}></ReadBooks>
-                ))}
-            </div>
+            {storedReadBooks.length > 0 ? (
+              <div className="">
+                {storedReadBooks &&
+                  storedReadBooks.map(book => (
+                    <ReadBooks key={book.bookId} book={book}></ReadBooks>
+                  ))}
+              </div>
+            ) : (
+              <div className="w-full flex justify-center items-center p-[100px] bg-gray-100 rounded-2xl">
+                <p className="text-[#13131399] text-lg font-medium">
+                  No Books Reading
+                </p>
+              </div>
+            )}
           </TabPanel>
           <TabPanel>
-            <div className="">
-              {storedWishlistBooks &&
-                storedWishlistBooks.map(book => (
-                  <ReadBooks key={book.bookId} book={book}></ReadBooks>
-                ))}
-            </div>
+            {storedWishlistBooks.length > 0 ? (
+              <div className="">
+                {storedWishlistBooks &&
+                  storedWishlistBooks.map(book => (
+                    <ReadBooks key={book.bookId} book={book}></ReadBooks>
+                  ))}
+              </div>
+            ) : (
+              <div className="w-full flex justify-center items-center p-[100px] bg-gray-100 rounded-2xl">
+                <p className="text-[#13131399] text-lg font-medium">
+                  No Books Added to wishlist
+                </p>
+              </div>
+            )}
           </TabPanel>
         </Tabs>
       </div>
