@@ -7,6 +7,7 @@ const useDataLoad = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
     axios('../booksData.json')
       .then(data => setBooks(data.data))
       .catch(err => setError(err))

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import useDataLoad from '../Hooks/useDataLoad';
 import Book from '../components/Book';
+import LoadingUi from '../components/LoadingUi';
 
 const AllBooks = () => {
-  const { books } = useDataLoad();
+  const { books, loading } = useDataLoad();
 
   const [searchValue, setSearchValue] = useState('');
   const searchCustomize = searchValue.trim().toLowerCase();
@@ -49,10 +50,16 @@ const AllBooks = () => {
           />
         </label>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-[36px]">
-        {books &&
-          searchBooks.map(book => <Book key={book.bookId} book={book}></Book>)}
-      </div>
+      {loading ? (
+        <LoadingUi count={searchBooks.length}></LoadingUi>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-[36px]">
+          {books &&
+            searchBooks.map(book => (
+              <Book key={book.bookId} book={book}></Book>
+            ))}
+        </div>
+      )}
     </div>
   );
 };

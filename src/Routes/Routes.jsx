@@ -2,14 +2,16 @@ import { createBrowserRouter } from 'react-router';
 import RootLayout from '../Layout/RootLayout';
 import Home from '../pages/Home';
 import BookList from '../pages/BookList';
-import PageToRead from '../pages/pageToRead';
 import AllBooks from '../pages/AllBooks';
 import BookDetails from '../pages/BookDetails';
+import Errorpage from '../components/Errorpage';
+import PageToRead from '../pages/PageToRead';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout></RootLayout>,
+    errorElement: <Errorpage />,
     children: [
       {
         index: true,
